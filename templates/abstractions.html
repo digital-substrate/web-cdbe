@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="style.css") }}">
+  <title>Databases</title>
+</head>
+<body>
+<h2>Database Contents</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Abstractions</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  {% for type in types %}
+    <tr>
+      <td><a href="{{ url_for("keys", abstraction_runtime_id=type.runtime_id()) }}">{{ type.representation() }}</a></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+</html>

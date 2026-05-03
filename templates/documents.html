@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Attachments</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <title>Documents</title>
+</head>
+<body>
+<h2>Attached Documents</h2>
+<div class="details_indent">
+  {{ content | safe }}
+</div>
+<hr>
+<a href="{{ url_for('abstractions') }}">Abstractions</a>
+<a href="{{ url_for('keys', abstraction_runtime_id=abstraction_runtime_id) }}">Keys</a>
+</body>
+</html>

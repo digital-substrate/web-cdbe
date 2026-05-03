@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename="style.css") }}">
+  <title>Keys for {{ name }}}</title>
+</head>
+<body>
+<h2>Keys for {{ name }}</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Instance ID</th>
+    <th>Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  {% for key in keys %}
+    <tr>
+      <td>
+        <a href="{{ url_for("documents", abstraction_runtime_id=abstraction_runtime_id, concept_runtime_id=key.concept_runtime_id, instance_id=key.instance_id) }}">{{ key.instance_id}}</a>
+      </td>
+      <td>
+        {{ key.name }}
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</body>
+<hr>
+<a href="{{ url_for('abstractions') }}">Abstractions</a>
+</html>
