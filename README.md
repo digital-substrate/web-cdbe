@@ -2,6 +2,12 @@
 
 A Flask web application that demonstrates how to build a **Commit Database Editor** on top of `dsviper` — pure HTML5, no JavaScript.
 
+## Documentation
+
+Full documentation: https://docs.digitalsubstrate.io/reference-apps/
+
+Part of the [DevKit ecosystem](https://docs.digitalsubstrate.io/).
+
 ## Prerequisites
 
 - Python 3.14+
