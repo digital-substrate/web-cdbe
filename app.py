@@ -3,7 +3,7 @@ import os
 from dsviper import CommitMutableState
 from flask import Flask, render_template, request, redirect, url_for
 from dsviper import TypeKey, TypeSet, Type, TypeConcept, TypeClub, TypeAnyConcept
-from dsviper import CommitDatabase, KeyNamer, ValueUUId, ValueKey, ValueSet
+from dsviper import CommitDatabase, CommitStateBuilder, KeyNamer, ValueUUId, ValueKey, ValueSet
 from dsviper import DocumentNode
 
 from html_documents_renderer import HtmlDocumentsRenderer
@@ -68,7 +68,7 @@ def keys(abstraction_runtime_id):
     viper_type = definitions.check_type(abstraction_runtime_id)
     type_key = TypeKey(viper_type)
     collected_keys = ValueSet(TypeSet(type_key))
-    attachment_getting = db.state(db.last_commit_id()).attachment_getting()
+    attachment_getting = CommitStateBuilder.state(db, db.last_commit_id()).attachment_getting()
 
     for attachment in definitions.attachments():
         if attachment.type_key() == type_key:
@@ -107,7 +107,7 @@ def documents(abstraction_runtime_id, concept_runtime_id, instance_id):
     definitions = db.definitions()
     concept = definitions.check_concept(concept_runtime_id)
     key = ValueKey.create(concept, instance_id)
-    attachment_getting = db.state(db.last_commit_id()).attachment_getting()
+    attachment_getting = CommitStateBuilder.state(db, db.last_commit_id()).attachment_getting()
     doc = DocumentNode.create_documents(key, attachment_getting)
 
     key_namer = KeyNamer(definitions)
@@ -132,13 +132,13 @@ def update():
     definitions = db.definitions()
     concept = definitions.check_concept(concept_runtime_id)
     key = ValueKey.create(concept, instance_id)
-    attachment_getting = db.state(db.last_commit_id()).attachment_getting()
+    attachment_getting = CommitStateBuilder.state(db, db.last_commit_id()).attachment_getting()
     doc = DocumentNode.create_documents(key, attachment_getting)
 
     node = find_node(node_uuid, doc)
     if node:
         value = value_to_python(node, value)
-        state = db.state(db.last_commit_id())
+        state = CommitStateBuilder.state(db, db.last_commit_id())
         mutable_state = CommitMutableState(state)
         mutable_state.attachment_mutating().update(node.attachment(), node.key(), node.path().regularized().const(), value)
         db.commit_mutations("Update From The Web", mutable_state)
@@ -164,7 +164,7 @@ def documents_node(abstraction_runtime_id, concept_runtime_id, instance_id, node
     definitions = db.definitions()
     concept = definitions.check_concept(concept_runtime_id)
     key = ValueKey.create(concept, instance_id)
-    attachment_getting = db.state(db.last_commit_id()).attachment_getting()
+    attachment_getting = CommitStateBuilder.state(db, db.last_commit_id()).attachment_getting()
     doc = DocumentNode.create_documents(key, attachment_getting)
 
     key_namer = KeyNamer(definitions)
