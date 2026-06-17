@@ -15,7 +15,7 @@ Use [GitHub Issues](https://github.com/digital-substrate/web-cdbe/issues) and pi
 
 ## Running locally
 
-Requires Python 3.14+.
+Requires Python 3.10-3.14.
 
 ```bash
 pip install -r requirements.txt          # flask and deps
