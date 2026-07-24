@@ -1,2 +1,2 @@
-dsviper>=1.2.16
+dsviper>=1.2.23
 flask>=3.0
