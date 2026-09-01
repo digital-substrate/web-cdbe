@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a problem with Web CDBE (web-cdbe)
+about: Report a problem with Web CDBE (dsviper-web-cdbe)
 labels: bug
 ---
 
@@ -8,7 +8,7 @@ labels: bug
 <!-- Clear description of the bug -->
 
 ## Environment
-- web-cdbe commit/version:
+- dsviper-web-cdbe commit/version:
 - Python version:
 - Flask version:
 - dsviper version:

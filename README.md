@@ -1,10 +1,10 @@
-# Web CDBE (web-cdbe)
+# Web CDBE (dsviper-web-cdbe)
 
 A Flask web application that demonstrates how to build a **Commit Database Editor** on top of `dsviper` — pure HTML5, no JavaScript.
 
 ## Documentation
 
-Full documentation: https://docs.digitalsubstrate.io/reference-apps/
+Full documentation: https://docs.digitalsubstrate.io/commit-apps/dsviper-web-cdbe.html
 
 Part of the [DevKit ecosystem](https://docs.digitalsubstrate.io/).
 

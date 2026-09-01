@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest a feature or enhancement for Web CDBE (web-cdbe)
+about: Suggest a feature or enhancement for Web CDBE (dsviper-web-cdbe)
 labels: enhancement
 ---
 

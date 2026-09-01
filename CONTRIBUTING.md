@@ -1,10 +1,10 @@
-# Contributing to Web CDBE (web-cdbe)
+# Contributing to Web CDBE (dsviper-web-cdbe)
 
 Thanks for your interest in contributing.
 
 ## Reporting issues
 
-Use [GitHub Issues](https://github.com/digital-substrate/web-cdbe/issues) and pick the appropriate template (bug report or feature request).
+Use [GitHub Issues](https://github.com/digital-substrate/dsviper-web-cdbe/issues) and pick the appropriate template (bug report or feature request).
 
 ## Submitting pull requests
 
